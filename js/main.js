@@ -78,9 +78,10 @@ processBtn.addEventListener('click', async () => {
             pixelGrid.innerHTML = '<p>超大尺寸，暂不预览</p>';
         }
         exportBtn.disabled = false;
-        alert('像素提取完成！');
+        // alert('像素提取完成！');
+	// 这玩意也是打断施法，删了
     } catch (err) {
         console.error(err);
-        alert('处理失败！');
+        alert('我靠居然处理失败了，是不是你的图片太大或者什么原因，反正赶紧联系开发者！');
     }
 });

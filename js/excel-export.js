@@ -26,9 +26,10 @@ document.getElementById('export-btn').addEventListener('click', async () => {
         const buffer = await workbook.xlsx.writeBuffer();
         const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
         saveAs(blob, `${Date.now()}.xlsx`);
-        alert('导出成功！');
+        // alert('导出成功！');
+	// 无意义的提示
     } catch (err) {
         console.error(err);
-        alert('导出失败！');
+        alert('我靠居然导出失败了，是不是你的图片太大或者什么原因，反正赶紧联系开发者！');
     }
 });
