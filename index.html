@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>像素转Excel表格</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>像素转Excel表格</h1>
+        <div class="operation-area">
+<div class="upload-section">
+    <label class="upload-btn" for="image-upload">选择图片上传</label>
+    <input type="file" id="image-upload" accept="image/*" class="hidden-file-input">
+    <div id="image-preview" class="preview">图片预览...</div>
+</div>
+            <div class="size-setting">
+                <label for="target-width">目标宽度（像素）：</label>
+                <input type="number" id="target-width" min="1" max="32768" value="20" placeholder="输入宽度">
+                <label for="target-height">目标高度（像素）：</label>
+                <input type="number" id="target-height" min="1" max="32768" value="20" placeholder="输入高度">
+                <p style="color: #ff4444; font-size: 12px; margin-top: 5px;">⚠️ 超过1000×1000像素可能卡顿</p>
+            </div>
+            <div class="btn-group">
+                <button id="process-btn" disabled>Step1：处理图片、提取像素</button>
+                <button id="export-btn" disabled>Step2：导出为xlsx</button>
+            </div>
+        </div>
+        <div class="pixel-preview" id="pixel-preview">
+            <h3>像素预览</h3>
+            <div id="pixel-grid" class="pixel-grid"></div>
+        </div>
+ <footer style="text-align:center;padding:12px 8px;color:#666;font-size:13px;border-top:1px solid #eee;margin-top:18px">
+    作者 @HoLuc1078 · 洛谷: <a href="https://www.luogu.com.cn/user/589190" target="_blank" rel="noopener">https://www.luogu.com.cn/user/589190</a> · GitHub: <a href="https://github.com/holuc1078/pic2xlsx" target="_blank" rel="noopener">https://github.com/holuc1078/pic2xlsx</a>
+  </footer>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/excel-export.js"></script>
+</body>
+</html>

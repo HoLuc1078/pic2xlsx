@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.operation-area {
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.upload-section, .size-setting, .btn-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: inline-block;
+    width: 120px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* 隐藏原生文件输入框 */
+.hidden-file-input {
+    display: none;
+}
+
+/* 美化上传按钮 */
+.upload-btn {
+    width: auto;
+    padding: 10px 24px;
+    background: #28a745;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+}
+
+.upload-btn:hover {
+    background: #218838;
+}
+
+input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background: #0056b3;
+}
+
+/* 预览区域样式 */
+.preview {
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+    border: 1px dashed #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 14px;
+}
+
+.preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.pixel-preview {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.pixel-grid {
+    margin-top: 10px;
+    display: grid;
+    gap: 1px;
+    background: #ddd;
+    width: fit-content;
+}
+
+.pixel-cell {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+}
+
+/* 底部链接样式 */
+.github-footer {
+    margin-top: 40px;
+    text-align: center;
+    padding: 10px;
+    color: #666;
+}
+
+.github-footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.github-footer a:hover {
+    text-decoration: underline;
+}
+
+.github-footer span {
+    color: #666;
+    margin: 0 5px;
+}
