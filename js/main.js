@@ -1,6 +1,7 @@
 let pixelData = null;
-let targetWidth = 20;
-let targetHeight = 20;
+let targetWidth = 0;
+let targetHeight = 0;
+let miaomiao = 2;
 
 const imageUpload = document.getElementById('image-upload');
 const imagePreview = document.getElementById('image-preview');
@@ -9,6 +10,10 @@ const targetHeightInput = document.getElementById('target-height');
 const processBtn = document.getElementById('process-btn');
 const exportBtn = document.getElementById('export-btn');
 const pixelGrid = document.getElementById('pixel-grid');
+const miaomiaomiao = document.getElementById('miao');
+function gcd(a, b) {
+    return b === 0 ? a : gcd(b, a % b);
+}
 
 imageUpload.addEventListener('change', (e) => {
     const file = e.target.files[0];
@@ -16,6 +21,16 @@ imageUpload.addEventListener('change', (e) => {
     const reader = new FileReader();
     reader.onload = (event) => {
         const img = document.createElement('img');
+        img.onload = () => {
+            const originalW = img.naturalWidth;
+            const originalH = img.naturalHeight;
+            const Fuck_CCF = gcd(originalW, originalH);
+            targetWidthInput.value = originalW / Fuck_CCF;
+            targetHeightInput.value = originalH / Fuck_CCF;
+            targetWidth = originalW / Fuck_CCF;
+            targetHeight = originalH / Fuck_CCF;
+            pixelGrid.innerHTML = '图片原长：' + originalW + '*' + originalH;
+        };
         img.src = event.target.result;
         imagePreview.innerHTML = '';
         imagePreview.appendChild(img);
@@ -25,19 +40,29 @@ imageUpload.addEventListener('change', (e) => {
 });
 // 打断施法，不过现在删了，在下面加一个“免责提示”比弹出式窗口好得多
 targetWidthInput.addEventListener('input', (e) => {
-    targetWidth = Math.max(1, Math.min(32768, parseInt(e.target.value) || 20));
+    targetWidth = Math.max(0, Math.min(32768, parseInt(e.target.value) || 0));
     e.target.value = targetWidth;
 // if (targetWidth > 1000) alert('宽度过大可能卡顿！');
 });
 
 targetHeightInput.addEventListener('input', (e) => {
-    targetHeight = Math.max(1, Math.min(32768, parseInt(e.target.value) || 20));
+    targetHeight = Math.max(0, Math.min(32768, parseInt(e.target.value) || 0));
     e.target.value = targetHeight;
 // if (targetHeight > 1000) alert('高度过大可能卡顿！');
 });
 
+miaomiaomiao.addEventListener('input', (e) => {
+    miaomiao = Math.max(0, Math.min(255, parseInt(e.target.value) || 0));
+    e.target.value = miaomiao;
+});
+
 // getImageData取RGB值
 processBtn.addEventListener('click', async () => {
+    // 新增：判断宽高是否为0
+    if (targetWidth === 0 || targetHeight === 0) {
+        alert('宽度和高度不能为0，请输入有效数值！');
+        return;
+    }
     const file = imageUpload.files[0];
     if (!file || (targetWidth * targetHeight > 1000000 && !confirm('尺寸过大，继续？'))) return;
     try {

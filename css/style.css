@@ -35,12 +35,10 @@ label {
     color: #555;
 }
 
-/* 隐藏原生文件输入框 */
 .hidden-file-input {
     display: none;
 }
 
-/* 美化上传按钮 */
 .upload-btn {
     width: auto;
     padding: 10px 24px;
@@ -82,7 +80,6 @@ button:hover:not(:disabled) {
     background: #0056b3;
 }
 
-/* 预览区域样式 */
 .preview {
     margin-top: 10px;
     width: 200px;
@@ -121,7 +118,6 @@ button:hover:not(:disabled) {
     background: #fff;
 }
 
-/* 底部链接样式 */
 .github-footer {
     margin-top: 40px;
     text-align: center;
@@ -141,4 +137,50 @@ button:hover:not(:disabled) {
 .github-footer span {
     color: #666;
     margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 10px auto;
+    }
+
+    .operation-area {
+        padding: 15px;
+    }
+
+    .preview {
+        width: 100%;
+        height: auto;
+        min-height: 150px;
+    }
+
+    .upload-btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .size-setting label {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .size-setting input[type="number"] {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .btn-group button {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .pixel-grid {
+        max-width: 100%;
+        overflow-x: auto;
+    }
 }
